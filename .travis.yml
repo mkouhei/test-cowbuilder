@@ -1,3 +1,5 @@
+language: python
 install:
-  - sudo apt-get install cowbuilder git-buildpackage
-  - sudo DISTRIBUTION=unstable MIRRORSITE=http://cdn.debian.net/debian/ cowbuilder --create
+  - sudo apt-get install -y cowbuilder git-buildpackage debian-archive-keyring
+  - echo -e 'MIRRORSITE=http://cdn.debian.org/debian/\nDISTRIBUTION=unstable\nBASEPATH=/home/travis/base.cow\n' > /home/travis/.pbuilderrc
+  - sudo cowbuilder --create
