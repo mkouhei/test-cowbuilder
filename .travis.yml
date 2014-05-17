@@ -1,3 +1,3 @@
-before_install:
+install:
   - sudo apt-get install cowbuilder git-buildpackages
   - sudo DISTRIBUTION=unstable MIRRORSITE=http://cdn.debian.net/debian/ cowbuilder --create
