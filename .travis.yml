@@ -1,7 +1,7 @@
-language: python
+language: bash
 install:
   - sudo apt-get update
   - sudo apt-get upgrade -y
-  - sudo apt-get install -y git cowbuilder git-buildpackage
+  - sudo apt-get install -y git-core cowbuilder git-buildpackage
   - echo -e 'MIRRORSITE=http://cdn.debian.org/debian/\nDISTRIBUTION=unstable\nBASEPATH=/home/travis/base.cow\n' > /home/travis/.pbuilderrc
   - sudo cowbuilder --create
