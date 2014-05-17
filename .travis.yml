@@ -2,7 +2,7 @@ language: bash
 install:
   - sudo apt-get update
   - sudo apt-get upgrade -y
-  - sudo apt-get install -y cowbuilder
+  - sudo apt-get install -y cowbuilder debian-archive-keyring
   - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=unstable\nBASEPATH=/home/travis/base.cow\n' > /home/travis/.pbuilderrc
   - cat  /home/travis/.pbuilderrc
-  - sudo cowbuilder --create
+  - sudo cowbuilder --create --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
