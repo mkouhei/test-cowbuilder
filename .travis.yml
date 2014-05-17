@@ -4,5 +4,5 @@ install:
   - sudo apt-get upgrade -y
   - sudo apt-get install -y cowbuilder debian-archive-keyring
   - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=unstable\nBASEPATH=/home/travis/base.cow\n' > /home/travis/.pbuilderrc
-  - cat  /home/travis/.pbuilderrc
+  - ls -l /usr/share/keyrings/debian-archive-keyring.gpg
   - sudo cowbuilder --create --debootstrapopts --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
