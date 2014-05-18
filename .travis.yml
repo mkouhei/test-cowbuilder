@@ -2,8 +2,10 @@ language: bash
 install:
   - sudo apt-get update
   - sudo apt-get upgrade -y
-  - sudo apt-get install -y cowbuilder debian-archive-keyring
+  - sudo apt-get install -y cowbuilder
   - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=sid\nBASEPATH=/home/travis/base.cow\n' > /home/travis/.pbuilderrc
-  - cat /etc/lsb-release
+  - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu precise-backports"
+  - sudo apt-get update
+  - sudo apt-get install debian-archive-keyring/precise-backports
   - gpg --list-keys --keyring /usr/share/keyrings/debian-archive-keyring.gpg
   - sudo cowbuilder --create --distribution sid --debootstrapopts --keyring=/usr/share/keyrings/debian-archive-keyring.gpg
