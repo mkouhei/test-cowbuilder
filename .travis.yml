@@ -4,7 +4,8 @@ install:
   - sudo apt-get upgrade -y
   - sudo apt-get install -y cowbuilder
   - echo -e 'MIRRORSITE=http://cdn.debian.net/debian/\nDISTRIBUTION=sid\nBASEPATH=/home/travis/base.cow\n' > /home/travis/.pbuilderrc
-  - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu precise-backports"
+  - egrep -v '^#|^(\s+)?$' /etc/apt/sources.list
+  - sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu/ precise-backports"
   - sudo apt-get update
   - sudo apt-get install debian-archive-keyring/precise-backports
   - gpg --list-keys --keyring /usr/share/keyrings/debian-archive-keyring.gpg
